@@ -1,6 +1,6 @@
 #!/bin/sh
 
-DEFAULT_TURNS=10
+DEFAULT_TURNS=50
 if [ $# -gt 0 ]; then
     TURNS=$1
 else
@@ -14,32 +14,27 @@ else
     M=$DEFAULT_MAP
 fi
 
-MAP="maps/$M.map"
+# MAP="maps/$M.map"
+MAP="tools/maps/maze/maze_04p_01.map"
 
 CMD="python tools/playgame.py"
-EBOT="python /Users/lmm/aichallange_ants_cpp/DirBot.py w"
-BOT="/Users/lmm/aichallange_ants_cpp/MyBot"
+# EBOT="python /home/lmm/aichallange_ants_cpp/DirBot.py w"
+EBOT="python tools/sample_bots/python/HunterBot.py"
+BOT="/home/lmm/aichallange_ants_cpp/MyBot"
+# EBOT="/home/lmm/aichallange_ants_cpp/MyBot"
 OPTS="--log_dir game_logs
       --turns $TURNS
       --loadtime 3000
-      --turntime 30000
+      --turntime 500
       --viewradius2 77
       --attackradius2 5
       --spawnradius2 1
-      --food none
       --attack focus
       --kill_points 2
       --cutoff_turn 150
       --cutoff_percent 0.85
-      --scenario
       --verbose -e "
 
-$CMD "$BOT" "$EBOT" --map_file $MAP  $OPTS 1> /dev/null
-
-
-# $CMD "python $BOT" "python $EBOT " "python $EBOT " --map_file $MAP  $OPTS 1> /dev/null
-# $CMD "python $BOT" "python $EBOT " "python $EBOT " "python $EBOT " --map_file $MAP  $OPTS 1> /dev/null
-# $CMD "python $BOT" "python $EBOT " "python $EBOT " "python $EBOT " "python $EBOT " --map_file $MAP  $OPTS 1> /dev/null
-# $CMD "python $BOT" "python $EBOT " "python $EBOT " "python $EBOT " "python $EBOT " "python $EBOT " --map_file $MAP  $OPTS 1> /dev/null
-# $CMD "python $BOT" "python $EBOT " "python $EBOT " "python $EBOT " "python $EBOT " "python $EBOT " "python $EBOT " --map_file $MAP  $OPTS 1> /dev/null
-# $CMD "python $BOT" "python $EBOT " "python $EBOT " "python $EBOT " "python $EBOT " "python $EBOT " "python $EBOT " "python $EBOT " --map_file $MAP  $OPTS 1> /dev/null
+$CMD " $BOT" " $BOT " " $BOT " " $BOT "  --map_file $MAP  $OPTS 1> /dev/null
+# $CMD "$BOT" "$EBOT" --map_file $MAP  $OPTS 1> /dev/null
+# $CMD "python $BOT" "python $BOT " "python $BOT " "python $BOT " "python $BOT " "python $BOT " "python $BOT " "python $BOT " --map_file $MAP  $OPTS 1> /dev/null
