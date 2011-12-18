@@ -1,0 +1,45 @@
+#!/bin/sh
+
+DEFAULT_TURNS=10
+if [ $# -gt 0 ]; then
+    TURNS=$1
+else
+    TURNS=$DEFAULT_TURNS
+fi
+
+DEFAULT_MAP="arena_02p"
+if [ $# -gt 1 ]; then
+    M="$2"
+else
+    M=$DEFAULT_MAP
+fi
+
+MAP="maps/$M.map"
+
+CMD="python tools/playgame.py"
+EBOT="python /Users/lmm/aichallange_ants_cpp/DirBot.py w"
+BOT="/Users/lmm/aichallange_ants_cpp/MyBot"
+OPTS="--log_dir game_logs
+      --turns $TURNS
+      --loadtime 3000
+      --turntime 30000
+      --viewradius2 77
+      --attackradius2 5
+      --spawnradius2 1
+      --food none
+      --attack focus
+      --kill_points 2
+      --cutoff_turn 150
+      --cutoff_percent 0.85
+      --scenario
+      --verbose -e "
+
+$CMD "$BOT" "$EBOT" --map_file $MAP  $OPTS 1> /dev/null
+
+
+# $CMD "python $BOT" "python $EBOT " "python $EBOT " --map_file $MAP  $OPTS 1> /dev/null
+# $CMD "python $BOT" "python $EBOT " "python $EBOT " "python $EBOT " --map_file $MAP  $OPTS 1> /dev/null
+# $CMD "python $BOT" "python $EBOT " "python $EBOT " "python $EBOT " "python $EBOT " --map_file $MAP  $OPTS 1> /dev/null
+# $CMD "python $BOT" "python $EBOT " "python $EBOT " "python $EBOT " "python $EBOT " "python $EBOT " --map_file $MAP  $OPTS 1> /dev/null
+# $CMD "python $BOT" "python $EBOT " "python $EBOT " "python $EBOT " "python $EBOT " "python $EBOT " "python $EBOT " --map_file $MAP  $OPTS 1> /dev/null
+# $CMD "python $BOT" "python $EBOT " "python $EBOT " "python $EBOT " "python $EBOT " "python $EBOT " "python $EBOT " "python $EBOT " --map_file $MAP  $OPTS 1> /dev/null

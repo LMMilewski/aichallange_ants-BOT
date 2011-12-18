@@ -1,0 +1,13 @@
+*~
+*.o
+tools/
+*.zip
+debug.txt
+game_logs/
+/ants.py
+/ants.pyc
+/MyBot
+/DirBot.py
+/old.cc
+/VERSION
+/README.txt
